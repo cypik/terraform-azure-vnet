@@ -1,15 +1,9 @@
-##-----------------------------------------------------------------------------
-## Locals declaration for determining the id of ddos protection plan.
-##-----------------------------------------------------------------------------
 locals {
   ddos_pp_id = var.enable_ddos_pp && var.existing_ddos_pp != null ? var.existing_ddos_pp : var.enable_ddos_pp && var.existing_ddos_pp == null ? azurerm_network_ddos_protection_plan.example[0].id : null
 }
 
-##-----------------------------------------------------------------------------
-## Labels module callled that will be used for naming and tags.
-##-----------------------------------------------------------------------------
 module "labels" {
-  source      = "git::git@github.com:opz0/terraform-azure-labels.git?ref=master"
+  source      = "git::https://github.com/opz0/terraform-azure-labels.git?ref=v1.0.0"
   name        = var.name
   environment = var.environment
   managedby   = var.managedby

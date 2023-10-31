@@ -2,19 +2,14 @@ provider "azurerm" {
   features {}
 }
 
-##----------------------------------------------------------------------------- 
-## Resource group in which all resources will be deployed.
-##-----------------------------------------------------------------------------
 module "resource_group" {
-  source      = "git::git@github.com:opz0/terraform-azure-resource-group.git?ref=master"
+  source      = "git::https://github.com/opz0/terraform-azure-resource-group.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   location    = "North Europe"
 }
 
-##----------------------------------------------------------------------------- 
-## Virtual Network module call.
-##-----------------------------------------------------------------------------
+
 module "vnet" {
   source              = "./../"
   name                = "app"
