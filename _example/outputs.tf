@@ -1,11 +1,11 @@
-output "vnet_id" {
+output "id" {
   description = "The id of the newly created vNet"
-  value       = module.vnet.vnet_id
+  value       = module.vnet.id
 }
 
-output "vnet_name" {
+output "name" {
   description = "The name of the newly created vNet"
-  value       = module.vnet.vnet_name
+  value       = module.vnet.name
 }
 
 output "vnet_location" {
