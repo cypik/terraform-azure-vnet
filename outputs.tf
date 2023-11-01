@@ -15,7 +15,7 @@ output "vnet_location" {
 
 output "vnet_address_space" {
   description = "The address space of the newly created vNet"
-  value       = join("", azurerm_virtual_network.vnet[*].address_space)
+  value       = join("", azurerm_virtual_network.vnet[*].address_space[0])
 }
 
 output "vnet_guid" {
