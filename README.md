@@ -20,9 +20,11 @@ You can use this module in your Terraform configuration like this:
 
 The "vnet" module creates an Azure Virtual Network. It references the resource group created by the "resource_group" module.
 
+# Examples
+
 ```hcl
 module "vnet" {
-  source              = "git::https://github.com/opz0/terraform-azure-vnet.git?ref=v1.0.0"
+  source              = "git::https://github.com/cypik/terraform-azure-vnet.git?ref=v1.0.0"
   name                = "app"
   environment         = "test"
   resource_group_name = module.resource_group.resource_group_name
@@ -47,10 +49,10 @@ This module provides the following outputs:
 - 'resource_group_location': The location of the created Azure resource group.
 
 # Examples
-For detailed examples on how to use this module, please refer to the 'examples' directory within this repository.
+For detailed examples on how to use this module, please refer to the '[example](https://github.com/cypik/terraform-azure-vnet/blob/master/_example)' directory within this repository.
 
 # License
-This Terraform module is provided under the '[License Name]' License. Please see the [LICENSE](https://github.com/opz0/terraform-azure-vnet/blob/readme/LICENSE) file for more details.
+This Terraform module is provided under the '[License Name]' License. Please see the [LICENSE](https://github.com/cypik/terraform-azure-vnet/blob/master/LICENSE) file for more details.
 
 # Author
 Your Name
