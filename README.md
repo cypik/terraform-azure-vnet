@@ -49,7 +49,7 @@ This module provides the following outputs:
 - 'resource_group_location': The location of the created Azure resource group.
 
 # Examples
-For detailed examples on how to use this module, please refer to the 'examples' directory within this repository.
+For detailed examples on how to use this module, please refer to the '[example](https://github.com/cypik/terraform-azure-vnet/blob/master/_example)' directory within this repository.
 
 # License
 This Terraform module is provided under the '[License Name]' License. Please see the [LICENSE](https://github.com/cypik/terraform-azure-vnet/blob/master/LICENSE) file for more details.
