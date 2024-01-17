@@ -54,9 +54,9 @@ Replace **MIT** and **Cypik** with the appropriate license and your information.
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) |  >=3.87.0 |
+| Name | Version  |
+|------|----------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >=3.87.0 |
 
 ## Modules
 
