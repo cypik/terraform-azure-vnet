@@ -3,7 +3,8 @@ provider "azurerm" {
 }
 
 module "resource_group" {
-  source      = "git::https://github.com/cypik/terraform-azure-resource-group.git?ref=v1.0.0"
+  source      = "cypik/resource-group/azure"
+  version     = "1.0.1"
   name        = "app"
   environment = "test"
   location    = "North Europe"
@@ -12,7 +13,7 @@ module "resource_group" {
 
 module "vnet" {
   source              = "./../"
-  name                = "app"
+  name                = "app-vnet"
   environment         = "test"
   resource_group_name = module.resource_group.resource_group_name
   location            = module.resource_group.resource_group_location
