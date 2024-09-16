@@ -1,15 +1,16 @@
 locals {
-  ddos_pp_id = var.enable_ddos_pp && var.existing_ddos_pp != null ? var.existing_ddos_pp : var.enable_ddos_pp && var.existing_ddos_pp == null ? azurerm_network_ddos_protection_plan.example[0].id : null
+  ddos_pp_id = var.enable_ddos_pp == false && var.existing_ddos_pp != null ? var.existing_ddos_pp : var.enable_ddos_pp && var.existing_ddos_pp == null ? azurerm_network_ddos_protection_plan.example[0].id : null
 }
 
 module "labels" {
   source      = "cypik/labels/azure"
-  version     = "1.0.1"
+  version     = "1.0.2"
   name        = var.name
   environment = var.environment
   managedby   = var.managedby
   label_order = var.label_order
   repository  = var.repository
+  extra_tags  = var.extra_tags
 }
 
 resource "azurerm_virtual_network" "vnet" {
@@ -27,6 +28,12 @@ resource "azurerm_virtual_network" "vnet" {
     content {
       id     = local.ddos_pp_id
       enable = true
+    }
+  }
+  dynamic "encryption" {
+    for_each = var.enforcement != null ? ["encryption"] : []
+    content {
+      enforcement = var.enforcement
     }
   }
   tags = module.labels.tags
