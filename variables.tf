@@ -22,10 +22,16 @@ variable "label_order" {
   description = "Label order, e.g. `name`,`application`."
 }
 
+variable "extra_tags" {
+  type        = map(string)
+  default     = {}
+  description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)."
+}
+
 variable "managedby" {
   type        = string
-  default     = ""
-  description = "ManagedBy, eg 'cypik'."
+  default     = "info@cypik.com"
+  description = "ManagedBy, eg 'info@cypik.com'"
 }
 
 variable "enable" {
@@ -98,5 +104,9 @@ variable "enable_network_watcher" {
   description = "Flag to control creation of network watcher."
 }
 
-
+variable "enforcement" {
+  type        = string
+  default     = null
+  description = "Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are DropUnencrypted and AllowUnencrypted."
+}
 

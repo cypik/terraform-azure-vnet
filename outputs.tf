@@ -9,29 +9,30 @@ output "name" {
 }
 
 output "vnet_location" {
-  description = "The location of the newly created vNet"
   value       = join("", azurerm_virtual_network.vnet[*].location)
+  description = "The location of the newly created vNet"
 }
 
 output "vnet_address_space" {
+  value       = join(", ", tolist(azurerm_virtual_network.vnet[0].address_space))
   description = "The address space of the newly created vNet"
-  value       = join("", azurerm_virtual_network.vnet[*].address_space[0])
 }
 
 output "vnet_guid" {
-  description = "The GUID of the virtual network."
   value       = join("", azurerm_virtual_network.vnet[*].guid)
+  description = "The GUID of the virtual network."
 }
 
 output "vnet_rg_name" {
-  description = "The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created"
   value       = join("", azurerm_virtual_network.vnet[*].resource_group_name)
+  description = "The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created"
 }
 
 output "ddos_protection_plan_id" {
   value       = join("", azurerm_network_ddos_protection_plan.example[*].id)
   description = "The ID of the DDoS Protection Plan"
 }
+
 output "network_watcher_id" {
   value       = join("", azurerm_network_watcher.flow_log_nw[*].id)
   description = "The ID of the Network Watcher."
