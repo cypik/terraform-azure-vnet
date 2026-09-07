@@ -4,7 +4,7 @@ locals {
 
 module "labels" {
   source      = "cypik/labels/azure"
-  version     = "1.0.2"
+  version     = "1.0.3"
   name        = var.name
   environment = var.environment
   managedby   = var.managedby
